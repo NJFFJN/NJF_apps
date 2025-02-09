@@ -1,5 +1,6 @@
 import sqlite3
 import requests
+import pandas as pd
 import streamlit as st
 
 # URL to your raw SQLite file on GitHub
@@ -15,9 +16,13 @@ def download_db():
 download_db()
 conn = sqlite3.connect("aga.guide.database.db")
 
-# Query example: Fetch all data from a table
-df = pd.read_sql("SELECT * FROM table_1", conn)
-st.write(df.head())  # Show first 5 rows
+# Query the first 3 rows from the 'structure_database' table
+query = "SELECT * FROM structure_database LIMIT 3"
+df = pd.read_sql(query, conn)
+
+# Show the first 3 rows in the Streamlit app
+st.write("First 3 rows from 'structure_database':")
+st.write(df)  # Display the dataframe
 
 conn.close()
 
