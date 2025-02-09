@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 
 # URL to your raw SQLite file on GitHub
-DB_URL = "https://github.com/your_username/your_repo/raw/main/aga.guide.database.db"
+DB_URL = "https://github.com/NJFFJN/NJF_apps/blob/main/aga_guide_database.db"
 
 # Download the database and save it locally
 @st.cache_data
@@ -22,7 +22,3 @@ st.write(df.head())  # Show first 5 rows
 conn.close()
 
 
-st.title("🎈 My old app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
